@@ -1,1 +1,25 @@
+import pandas as pd
 
+# Load the real ESA satellite dataset
+df = pd.read_csv("dataset_real.csv")
+
+print("===================================")
+print("ESA SATELLITE DATASET")
+print("===================================")
+
+print("Dataset shape:", df.shape)
+
+print("\nColumn names:")
+print(df.columns.tolist())
+
+print("\nFirst 5 rows:")
+print(df.head())
+
+print("\nMissing values:")
+print(df.isnull().sum())
+
+print("\nAnomaly distribution:")
+print(df["anomaly"].value_counts())
+
+print("\nDataset information:")
+print(df.info())

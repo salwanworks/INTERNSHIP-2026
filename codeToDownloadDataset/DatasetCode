@@ -1,0 +1,15 @@
+import requests
+
+url = "https://zenodo.org/records/15108715/files/dataset.csv?download=1"
+
+response = requests.get(url)
+
+if response.status_code == 200:
+    with open("satellite_dataset.csv", "wb") as file:
+        file.write(response.content)
+
+    print("Dataset downloaded successfully!")
+    print("File name: satellite_dataset.csv")
+else:
+    print("Download failed.")
+    print("Status code:", response.status_code)
